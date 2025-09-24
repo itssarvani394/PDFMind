@@ -7,6 +7,8 @@ _RAG Ollama is an Adaptive RAG Agent web app that uses LLM to answer questions a
 ![PDFMind Architecture](./assets/Architecture.png)
 
 ### Application Screenshots
+**Landing Page**
+![Landing Page](./assets/Landing_Page.png)
 
 **Asking a Question:**
 ![Asking Question](./assets/Asking_Question.png)
@@ -189,7 +191,7 @@ test-backend.bat
 3. **Upload PDF:** Upload your PDF document(s) using the file upload area
 4. **Ask Questions:** Type your question in the input field
 5. **Process:** Click the "Process" button to get AI-powered answers
-6. **View Results:** The AI will analyze your PDF and provide relevant answers
+6. **View Results:** Depending on your specs, the AI may take a few minutes to process  and provide relevant answers to your questions.
 
 ### Troubleshooting
 
