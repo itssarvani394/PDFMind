@@ -1,24 +1,20 @@
 'use client'
 /**
-* Enhanced PDFMind Landing Page - Modern AI Document Assistant
-* Features: Gradient backgrounds, glass morphism, smooth animations
+* Fallback Landing Page - Simple version without Framer Motion
+* Use this if Framer Motion causes issues
 */
 import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { 
   Brain, 
   Sparkles, 
   FileText, 
   Zap, 
   Shield, 
-  ArrowRight,
-  CheckCircle,
-  Star
+  ArrowRight
 } from "lucide-react";
 
-
-export function LandingPage() {
+export function LandingPageFallback() {
   const { isSignedIn } = useUser();
   
   return (
@@ -28,7 +24,6 @@ export function LandingPage() {
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
         <div className="absolute top-40 left-40 w-60 h-60 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute top-1/2 right-1/4 w-40 h-40 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-pulse"></div>
       </div>
 
       {/* Main Content */}
@@ -37,65 +32,36 @@ export function LandingPage() {
           <div className="w-full px-4 md:px-6">
             <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20 max-w-7xl mx-auto">
               {/* Left Content */}
-              <motion.div 
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                className="flex flex-col justify-center space-y-8"
-              >
+              <div className="flex flex-col justify-center space-y-8">
                 {/* Header */}
                 <div className="space-y-6">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="flex items-center space-x-3"
-                  >
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                      className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center"
-                    >
+                  <div className="flex items-center space-x-3">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
                       <Brain className="w-7 h-7 text-white" />
-                    </motion.div>
+                    </div>
                     <div>
                       <h1 className="text-4xl font-bold gradient-text sm:text-5xl xl:text-6xl">
                         PDFMind
-                </h1>
+                      </h1>
                       <p className="text-sm text-gray-300">AI Document Assistant</p>
                     </div>
-                  </motion.div>
+                  </div>
 
-                  <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl"
-                  >
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl">
                     Adaptive RAG
                     <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
                       Document Intelligence
                     </span>
-                  </motion.h2>
+                  </h2>
 
-                  <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    className="max-w-[600px] text-gray-300 md:text-xl leading-relaxed"
-                  >
+                  <p className="max-w-[600px] text-gray-300 md:text-xl leading-relaxed">
                     Empower your documents with real-time chat, context-aware AI, and hallucination-free response generation. 
                     Transform any PDF into an intelligent conversation partner.
-                  </motion.p>
+                  </p>
                 </div>
 
                 {/* Features */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                  className="space-y-4"
-                >
+                <div className="space-y-4">
                   <div className="grid gap-3 sm:grid-cols-2">
                     {[
                       { icon: FileText, text: "PDF Document Analysis" },
@@ -103,85 +69,51 @@ export function LandingPage() {
                       { icon: Shield, text: "Hallucination-Free Responses" },
                       { icon: Zap, text: "Real-Time Processing" }
                     ].map((feature, index) => (
-                      <motion.div
+                      <div
                         key={index}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
                         className="flex items-center space-x-3 glass rounded-lg p-3"
                       >
                         <feature.icon className="w-5 h-5 text-purple-400" />
                         <span className="text-sm font-medium">{feature.text}</span>
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
-                </motion.div>
+                </div>
 
                 {/* CTA Button */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.2 }}
-                  className="flex flex-col gap-4 sm:flex-row"
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                <div className="flex flex-col gap-4 sm:flex-row">
+                  <Link
+                    className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl btn-glow"
+                    href={isSignedIn ? "/dashboard" : "/sign-in"}
                   >
-                    <Link
-                      className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl btn-glow"
-                      href={isSignedIn ? "/dashboard" : "/sign-in"}
-                    >
-                      {isSignedIn ? (
-                        <>
-                          <Brain className="w-5 h-5 mr-2" />
-                          Go to Dashboard
-                        </>
-                      ) : (
-                        <>
-                          <Sparkles className="w-5 h-5 mr-2" />
-                          Get Started
-                        </>
-                      )}
-                      <ArrowRight className="w-5 h-5 ml-2" />
-                    </Link>
-                  </motion.div>
+                    {isSignedIn ? (
+                      <>
+                        <Brain className="w-5 h-5 mr-2" />
+                        Go to Dashboard
+                      </>
+                    ) : (
+                      <>
+                        <Sparkles className="w-5 h-5 mr-2" />
+                        Get Started
+                      </>
+                    )}
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Link>
                   
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                  <Link
+                    className="inline-flex items-center justify-center px-8 py-4 glass text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/20"
+                    href="#features"
                   >
-                    <Link
-                      className="inline-flex items-center justify-center px-8 py-4 glass text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/20"
-                      href="#features"
-                    >
-                      Learn More
-                    </Link>
-                  </motion.div>
-                </motion.div>
-              </motion.div>
+                    Learn More
+                  </Link>
+                </div>
+              </div>
 
               {/* Right Content - Hero Visual */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="flex items-center justify-center"
-              >
+              <div className="flex items-center justify-center">
                 <div className="relative">
                   {/* Main Hero Card */}
-                  <motion.div
-                    animate={{ 
-                      y: [0, -10, 0],
-                      rotate: [0, 1, -1, 0]
-                    }}
-                    transition={{ 
-                      duration: 6,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    className="glass rounded-3xl p-8 max-w-md mx-auto"
-                  >
+                  <div className="glass rounded-3xl p-8 max-w-md mx-auto">
                     {/* Dashboard Preview */}
                     <div className="space-y-4">
                       <div className="flex items-center space-x-3 mb-6">
@@ -224,51 +156,15 @@ export function LandingPage() {
                         </div>
                       </div>
                     </div>
-                  </motion.div>
-
-                  {/* Floating Elements */}
-                  <motion.div
-                    animate={{ 
-                      y: [0, -20, 0],
-                      rotate: [0, 5, -5, 0]
-                    }}
-                    transition={{ 
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 1
-                    }}
-                    className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center glass"
-                  >
-                    <Zap className="w-8 h-8 text-white" />
-                  </motion.div>
-
-                  <motion.div
-                    animate={{ 
-                      y: [0, 15, 0],
-                      rotate: [0, -3, 3, 0]
-                    }}
-                    transition={{ 
-                      duration: 5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 2
-                    }}
-                    className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center glass"
-                  >
-                    <Shield className="w-6 h-6 text-white" />
-                  </motion.div>
+                  </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Features Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
+        <section
           id="features"
           className="py-16 md:py-24"
         >
@@ -277,8 +173,8 @@ export function LandingPage() {
               <h2 className="text-3xl font-bold mb-4">Why Choose PDFMind?</h2>
               <p className="text-gray-300 text-lg max-w-2xl mx-auto">
                 Experience the future of document interaction with our advanced AI technology
-                </p>
-              </div>
+              </p>
+            </div>
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {[
@@ -298,25 +194,21 @@ export function LandingPage() {
                   description: "Get instant answers to your questions with lightning-fast response times."
                 }
               ].map((feature, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.6 + index * 0.2 }}
-                  whileHover={{ scale: 1.05 }}
                   className="glass rounded-2xl p-6 text-center card-hover"
                 >
                   <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <feature.icon className="w-8 h-8 text-white" />
-              </div>
+                  </div>
                   <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
                   <p className="text-gray-300">{feature.description}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.section>
-        </div>
+        </section>
+      </div>
     </div>
   )
 }
