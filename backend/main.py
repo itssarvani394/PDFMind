@@ -30,7 +30,7 @@ question = ""
 ### TRACING(optional) ###
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
-os.environ["LANGCHAIN_API_KEY"] = "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"
+os.environ["LANGCHAIN_API_KEY"] = "..."
 os.environ["LANGCHAIN_PROJECT"] = "Rag Ollama"
 
 
