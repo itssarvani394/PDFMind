@@ -1,6 +1,6 @@
 # PDFMind  - Adaptive RAG Chatbot
 
-_RAG Ollama is an Adaptive RAG Agent web app that uses LLM to answer questions about a PDF document. The app uses a graph-based approach to answer questions. The graph is built using LangGraph._
+_PDFMind is an Adaptive RAG Agent web app that uses LLM to answer questions about a PDF document. The app uses a graph-based approach to answer questions. The graph is built using LangGraph._
 ## Architecture & Screenshots
 
 ### System Architecture
